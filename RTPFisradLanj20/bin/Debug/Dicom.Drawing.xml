@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dicom.Drawing</name>
+    </assembly>
+    <members>
+        <member name="T:Dicom.Imaging.DicomOverlayDataFactory">
+            <summary>
+            Bitmap related factory methods for <see cref="T:Dicom.Imaging.DicomOverlayData"/>.
+            </summary>
+        </member>
+        <member name="M:Dicom.Imaging.DicomOverlayDataFactory.FromBitmap(Dicom.DicomDataset,System.Drawing.Bitmap,System.Drawing.Color)">
+            <summary>
+            Creates a DICOM overlay from a GDI+ Bitmap.
+            </summary>
+            <param name="ds">Dataset</param>
+            <param name="bitmap">Bitmap</param>
+            <param name="mask">Color mask for overlay</param>
+            <returns>DICOM overlay</returns>
+        </member>
+        <member name="T:Dicom.Imaging.WinFormsImageExtensions">
+            <summary>
+            Convenience class for non-generic access to <see cref="T:Dicom.Imaging.WinFormsImage"/> image objects.
+            </summary>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImageExtensions.AsBitmap(Dicom.Imaging.IImage)">
+            <summary>
+            Convenience method to access WinForms <see cref="T:Dicom.Imaging.IImage"/> instance as WinForms <see cref="T:System.Drawing.Bitmap"/>.
+            The returned <see cref="T:System.Drawing.Bitmap"/> will be disposed when the <see cref="T:Dicom.Imaging.IImage"/> is disposed.
+            </summary>
+            <param name="image"><see cref="T:Dicom.Imaging.IImage"/> object.</param>
+            <returns><see cref="T:System.Drawing.Bitmap"/> contents of <paramref name="image"/>.</returns>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImageExtensions.AsClonedBitmap(Dicom.Imaging.IImage)">
+            <summary>
+            Convenience method to access WinForms <see cref="T:Dicom.Imaging.IImage"/> instance as WinForms <see cref="T:System.Drawing.Bitmap"/>.
+            The returned <see cref="T:System.Drawing.Bitmap"/> is cloned and must be disposed by caller.
+            </summary>
+            <param name="iimage"><see cref="T:Dicom.Imaging.IImage"/> object.</param>
+            <returns><see cref="T:System.Drawing.Bitmap"/> contents of <paramref name="image"/>.</returns>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImageExtensions.AsSharedBitmap(Dicom.Imaging.IImage)">
+            <summary>
+            Convenience method to access WinForms <see cref="T:Dicom.Imaging.IImage"/> instance as WinForms <see cref="T:System.Drawing.Bitmap"/>.
+            The returned <see cref="T:System.Drawing.Bitmap"/> will be disposed when the <see cref="T:Dicom.Imaging.IImage"/> is disposed.
+            </summary>
+            <param name="iimage"><see cref="T:Dicom.Imaging.IImage"/> object.</param>
+            <returns><see cref="T:System.Drawing.Bitmap"/> contents of <paramref name="image"/>.</returns>
+        </member>
+        <member name="T:Dicom.Imaging.WinFormsImage">
+            <summary>
+            <see cref="T:Dicom.Imaging.IImage"/> implementation of a <see cref="T:System.Drawing.Bitmap"/> in the <code>System.Drawing</code> namespace.
+            </summary>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes an instance of the <see cref="T:Dicom.Imaging.WinFormsImage"/> object.
+            </summary>
+            <param name="width">Image width.</param>
+            <param name="height">Image height.</param>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.#ctor(System.Int32,System.Int32,Dicom.IO.PinnedIntArray,System.Drawing.Bitmap)">
+            <summary>
+            Initializes an instance of the <see cref="T:Dicom.Imaging.WinFormsImage"/> object.
+            </summary>
+            <param name="width">Image width.</param>
+            <param name="height">Image height.</param>
+            <param name="pixels">Pixel array.</param>
+            <param name="image">Bitmap image.</param>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.Render(System.Int32,System.Boolean,System.Boolean,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.DrawGraphics(System.Collections.Generic.IEnumerable{Dicom.Imaging.Render.IGraphic})">
+            <inheritdoc />
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.Clone">
+            <inheritdoc />
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImage.As``1">
+            <summary>
+            Cast <see cref="T:Dicom.Imaging.IImage"/> object to specific (real image) type.
+            The returned bitmap will be disposed when the <see cref="T:Dicom.Imaging.IImage"/> is disposed.
+            </summary>
+            <typeparam name="T">Real image type to cast to.</typeparam>
+            <returns><see cref="T:Dicom.Imaging.IImage"/> object as specific (real image) type.</returns>
+            <remarks>overridden only for obsolete warning</remarks>
+        </member>
+        <member name="T:Dicom.Imaging.WinFormsImageManager">
+            <summary>
+            Windows Forms-based image manager implementation.
+            </summary>
+        </member>
+        <member name="F:Dicom.Imaging.WinFormsImageManager.Instance">
+            <summary>
+            Single instance of the Windows Forms image manager.
+            </summary>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImageManager.#cctor">
+            <summary>
+            Initializes the static fields of <see cref="T:Dicom.Imaging.WinFormsImageManager"/>
+            </summary>
+        </member>
+        <member name="P:Dicom.Imaging.WinFormsImageManager.IsDefault">
+            <summary>
+            Gets whether or not this type is classified as a default manager.
+            </summary>
+        </member>
+        <member name="M:Dicom.Imaging.WinFormsImageManager.CreateImageImpl(System.Int32,System.Int32)">
+            <summary>
+            Create <see cref="T:Dicom.Imaging.IImage"/> object using the current implementation.
+            </summary>
+            <param name="width">Image width.</param>
+            <param name="height">Image height.</param>
+            <returns><see cref="T:Dicom.Imaging.IImage"/> object using the current implementation.</returns>
+        </member>
+        <member name="T:Dicom.Printing.FilmBoxExtensions">
+            <summary>
+            Extension methods on instance of the <see cref="T:Dicom.Printing.FilmBox"/> class.
+            </summary>
+        </member>
+        <member name="M:Dicom.Printing.FilmBoxExtensions.GetSizeInInch(Dicom.Printing.FilmBox)">
+            <summary>
+            Get the film box size in inches.
+            </summary>
+            <param name="filmBox">Film box object.</param>
+            <returns>Size in inches of film box.</returns>
+        </member>
+        <member name="M:Dicom.Printing.FilmBoxExtensions.Print(Dicom.Printing.FilmBox,System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            Print a film box on specified graphics.
+            </summary>
+            <param name="filmBox">Film box.</param>
+            <param name="graphics">Graphics on which to draw the film box.</param>
+            <param name="marginBounds">Margin bounds.</param>
+            <param name="imageResolution">Image resolution.</param>
+        </member>
+        <member name="M:Dicom.Printing.FilmBoxExtensions.ToRectF(System.Drawing.Rectangle)">
+            <summary>
+            Convert <see cref="T:System.Drawing.Rectangle"/> object into <see cref="T:Dicom.Imaging.Mathematics.RectF"/> object.
+            </summary>
+            <param name="rectangle">Rectangle to convert.</param>
+            <returns>Rectangle expressed as <see cref="T:Dicom.Imaging.Mathematics.RectF"/>.</returns>
+        </member>
+        <member name="T:Dicom.Printing.ImageBoxExtensions">
+            <summary>
+            Extension methods to support <see cref="T:Dicom.Printing.ImageBox"/> class.
+            </summary>
+        </member>
+        <member name="M:Dicom.Printing.ImageBoxExtensions.Print(Dicom.Printing.ImageBox,System.Drawing.Graphics,Dicom.Imaging.Mathematics.RectF,System.Int32)">
+            <summary>
+            Prints an image box onto the specified graphics.
+            </summary>
+            <param name="imageBox">Image box to print.</param>
+            <param name="graphics">Graphics in which image box should be contained.</param>
+            <param name="box">Rectangle within which the image box should be contained.</param>
+            <param name="imageResolution">Image resolution.</param>
+        </member>
+        <member name="M:Dicom.Printing.ImageBoxExtensions.FillBox(Dicom.Printing.FilmBox,Dicom.Imaging.Mathematics.RectF,System.Drawing.Graphics)">
+            <summary>
+            If requested, fill the box with black color.
+            </summary>
+            <param name="filmBox">Film box.</param>
+            <param name="box">Rectangle.</param>
+            <param name="graphics">Graphics.</param>
+        </member>
+        <member name="M:Dicom.Printing.ImageBoxExtensions.DrawBitmap(System.Drawing.Graphics,Dicom.Imaging.Mathematics.RectF,System.Drawing.Image,System.Int32,System.String)">
+            <summary>
+            Draw image bitmap in the specified rectangle.
+            </summary>
+            <param name="graphics">Graphics.</param>
+            <param name="box">Rectangle in which to draw.</param>
+            <param name="bitmap">Image to draw.</param>
+            <param name="imageResolution">Image resolution.</param>
+            <param name="emptyImageDensity">Empty image density.</param>
+        </member>
+    </members>
+</doc>
