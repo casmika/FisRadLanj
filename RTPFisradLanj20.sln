@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTPFisradLanj20", "RTPFisradLanj20\RTPFisradLanj20.csproj", "{B04CB807-0FA3-4103-B1EF-FEA8D6DC65DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B04CB807-0FA3-4103-B1EF-FEA8D6DC65DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B04CB807-0FA3-4103-B1EF-FEA8D6DC65DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B04CB807-0FA3-4103-B1EF-FEA8D6DC65DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B04CB807-0FA3-4103-B1EF-FEA8D6DC65DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B28325F-03ED-4709-9AF8-2EF455FF8E8A}
+	EndGlobalSection
+EndGlobal
